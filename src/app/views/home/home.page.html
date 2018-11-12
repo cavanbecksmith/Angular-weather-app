@@ -1,8 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-	<input type="text" [(ngModel)]="test">
-	<a (click)="printTest()">
-		Click me
-	</a>
+
+	<form>
+		<label for="locationSearch">Location</label>
+		<input name="locationSearch" type="text" [(ngModel)]="location">
+		<input type="button" name="submit" (click)="submit($event)">
+	</form>
+
+	
 </div>
 

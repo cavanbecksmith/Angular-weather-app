@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class WeatherserviceService {
-	appID = "bdd9dca01d94a7b3393615f66232b0d1";
-	apiRoot ="api.openweathermap.org/data/2.5/weather?q=London";
+	apiKey = "&appid=bdd9dca01d94a7b3393615f66232b0d1";
+	apiRoot ="https://api.openweathermap.org/data/2.5/weather?q=";
+	units = "&units=metric";
 
-  constructor() {
+	constructor(private http: HttpClient) {}
 
-  }
-
-  loadData(){
-  	console.log('Data load');
-  }
+	loadData(q){
+		if(q){
+			return this.http.get(this.apiRoot+q+this.apiKey+this.units)
+		    .subscribe(resp => {
+		    	console.log(resp);
+		    	return resp;
+		    });
+		}
+		else{
+			return false;
+		}
+	}
 }
