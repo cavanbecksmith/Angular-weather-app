@@ -13,11 +13,13 @@ export class WeatherserviceService {
 
 	loadData(q){
 		if(q){
-			return this.http.get(this.apiRoot+q+this.apiKey+this.units)
+			let data = this.http.get(this.apiRoot+q+this.apiKey+this.units)
 		    .subscribe(resp => {
-		    	console.log(resp);
+		    	console.log('Weather service resp: ', resp);
 		    	return resp;
 		    });
+		    // return data;
+
 		}
 		else{
 			return false;

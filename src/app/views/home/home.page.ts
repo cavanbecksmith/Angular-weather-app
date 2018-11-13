@@ -22,6 +22,7 @@ export class HomeView {
 
     submit(e){
       let data = this.messageservice.loadData(this.location);
+      console.log(data);
       if(data === false){
         alert('Please put a location in the input box');
       }
